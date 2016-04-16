@@ -99,13 +99,30 @@ function InterviewScene() {
 
   this.handleIntroSequence = function() {
     switch (this.introStep) {
+
       case 0:
-        this.typingText = "Hello there. Please take a seat. How are you?";
+        this.typingText = "Hello there.";
         this.typing = true;
-        this.introStep = 1;
+        this.introStep = 10;
         break;
 
-      case 1:
+      case 10:
+        if (!this.typing) {
+          this.typingText = "I'll be interviewing you for the position of professional shapeshifter.";
+          this.typing = true;
+          this.introStep = 20;
+        }
+        break;
+
+      case 20:
+        if (!this.typing) {
+          this.typingText = "Please take a seat. How are you today?";
+          this.typing = true;
+          this.introStep = 30;
+        }
+        break;
+
+      case 30:
         if (!this.typing) {
           response = this.input.getInputtedText();
 
@@ -121,14 +138,14 @@ function InterviewScene() {
             }
 
             this.typing = true;
-            this.introStep = 2;
+            this.introStep = 40;
 
           }
 
         }
         break;
 
-      case 2:
+      case 40:
         if (!this.typing) {
           response = this.input.getInputtedText();
 
