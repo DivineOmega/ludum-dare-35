@@ -5,6 +5,7 @@ function InterviewScene() {
   this.background = null;
   this.interviewer = null;
   this.questionText = null;
+  this.input = null;
 
   this.update = function(time) {
 
@@ -23,6 +24,8 @@ function InterviewScene() {
 
     this.questionText.render();
 
+    this.input.render();
+
   };
 
   this.init = function(convergame) {
@@ -37,6 +40,16 @@ function InterviewScene() {
     this.questionText.font = 'MinecraftiaRegular';
     this.questionText.fontSize = 40;
     this.questionText.style = '#00CC00';
+
+    this.input = new Input();
+    this.input.init(this.convergame, 100, 900, 1700, 100, "text");
+    this.input.align = "center";
+    this.input.fontSize = 40;
+    this.input.colour = '#00CC00';
+    this.input.backgroundColour = '#111';
+    this.input.borderColour = '#00CC00';
+    this.input.borderWidth = 10;
+    this.input.font = 'MinecraftiaRegular';
 
     this.interviewer = new Interviewer();
     this.interviewer.init(convergame);
