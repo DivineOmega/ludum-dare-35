@@ -32,6 +32,7 @@ function InterviewScene() {
         case 1:
           if (!this.typing) {
             this.input.hidden = false;
+            this.input.focus();
             var response = this.input.getInputtedText();
             if (response) {
               this.introStep = 2;
