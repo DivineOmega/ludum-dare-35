@@ -34,17 +34,32 @@ function InterviewScene() {
             this.input.hidden = false;
             this.input.focus();
             var response = this.input.getInputtedText();
+
             if (response) {
+
+              this.input.hidden = true;
+              this.typingText = "Ah... Well, shall we get started?";
+
+              var words = ['ok', 'fine', 'great', 'not bad'];
+              for (var i = 0; i < words.length; i++) {
+                if (response.toLowerCase().indexOf(words[i]) > -1) {
+                  this.typingText = "Good good. Shall we get started?";
+                }
+              }
+
+              this.typing = true;
               this.introStep = 2;
+
             }
+
           }
           break;
 
         case 2:
-          this.input.hidden = true;
-          this.typingText = "Good good. Shall we get started?";
-          this.typing = true;
-          this.introStep = 3;
+          if (!this.typing) {
+            this.input.hidden = false;
+            this.input.focus();
+          }
           break;
       }
     }
