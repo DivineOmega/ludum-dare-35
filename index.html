@@ -18,6 +18,8 @@
       var mainCanvas = document.getElementById('mainCanvas');
 
       var convergame = new Convergame(mainCanvas);
+
+      convergame.handleKeyboardEvents = false;
       convergame.init();
 
       var interviewScene = new InterviewScene();

@@ -7,14 +7,59 @@ function InterviewScene() {
   this.questionText = null;
   this.input = null;
 
+  this.introMode = true;
+  this.introStep = 0;
+
+  this.typing = false;
+  this.typingText = '';
+  this.typingPosition = 0;
+  this.typingTimer = 0;
+  this.typingTimerLimit = 0.05;
+
   this.update = function(time) {
 
     this.interviewer.update(time);
 
-    var response = this.input.getInputtedText();
+    if (this.introMode) {
+      switch (this.introStep) {
+        case 0:
+          this.input.hidden = true;
+          this.typingText = "Hello there. Please take a seat. How are you?";
+          this.typing = true;
+          this.introStep = 1;
+          break;
 
-    if (response.length>0) {
-      alert(response);
+        case 1:
+          if (!this.typing) {
+            this.input.hidden = false;
+            var response = this.input.getInputtedText();
+            if (response) {
+              this.introStep = 2;
+            }
+          }
+          break;
+
+        case 2:
+          this.input.hidden = true;
+          this.typingText = "Good good. Shall we get started?";
+          this.typing = true;
+          this.introStep = 3;
+          break;
+      }
+    }
+
+    if (this.typing) {
+      if (this.typingPosition < this.typingText.length) {
+        this.typingTimer += time;
+        if (this.typingTimer >= this.typingTimerLimit) {
+          this.typingPosition++;
+          this.questionText.text = this.typingText.substr(0, this.typingPosition);
+          this.typingTimer = 0;
+        }
+      } else {
+        this.typing = false;
+        this.typingPosition = 0;
+      }
     }
 
   };
@@ -40,7 +85,7 @@ function InterviewScene() {
     this.background.init(this.convergame, 0, 0, 1920, 1080, 'images/office/office.png');
 
     this.questionText = new Text();
-    this.questionText.init(this.convergame, 130, 110, 'Question text!');
+    this.questionText.init(this.convergame, 130, 110, '');
     this.questionText.font = 'MinecraftiaRegular';
     this.questionText.fontSize = 40;
     this.questionText.style = '#00CC00';
@@ -58,6 +103,8 @@ function InterviewScene() {
 
     this.interviewer = new Interviewer();
     this.interviewer.init(convergame);
+
+    this.introMode = true;
 
   };
 
