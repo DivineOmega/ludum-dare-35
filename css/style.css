@@ -4,3 +4,8 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+@font-face {
+    font-family: 'MinecraftiaRegular';
+    src: url('../fonts/Minecraftia-Regular.ttf');
+}

@@ -33,9 +33,10 @@ function InterviewScene() {
     this.background.init(this.convergame, 0, 0, 1920, 1080, 'images/office/office.png');
 
     this.questionText = new Text();
-    this.questionText.init(this.convergame, 130, 80, "Question text!");
+    this.questionText.init(this.convergame, 130, 110, 'Question text!');
+    this.questionText.font = 'MinecraftiaRegular';
     this.questionText.fontSize = 40;
-    this.questionText.style = "#00CC00";
+    this.questionText.style = '#00CC00';
 
     this.interviewer = new Interviewer();
     this.interviewer.init(convergame);
