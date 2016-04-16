@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Balloon Bullies</title>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <canvas id="mainCanvas" width="1920" height="1080">Your browser and/or browser does not seem to support HTML5 canvas! :(</canvas>
+
+    <script src="convergame-engine/convergame.min.js"></script>
+
+    <script src="scenes/InterviewScene.js"></script>
+
+    <script src="objects/Interviewer.js"></script>
+
+    <script>
+      var mainCanvas = document.getElementById('mainCanvas');
+
+      var convergame = new Convergame(mainCanvas);
+      convergame.init();
+
+      var interviewScene = new InterviewScene();
+
+      convergame.scene.changeScene(interviewScene);
+
+      convergame.startMainGameLoop();
+
+    </script>
+
+  </body>
+
+</html>
