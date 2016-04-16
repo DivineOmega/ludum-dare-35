@@ -19,6 +19,7 @@ function InterviewScene() {
   this.update = function(time) {
 
     this.interviewer.update(time);
+    this.interviewer.talking = this.typing;
 
     if (this.introMode) {
       switch (this.introStep) {
@@ -59,6 +60,24 @@ function InterviewScene() {
           if (!this.typing) {
             this.input.hidden = false;
             this.input.focus();
+            var response = this.input.getInputtedText();
+
+            if (response) {
+
+              this.input.hidden = true;
+              this.typingText = "Umm... shall we begin?";
+
+              var words = ['ok', 'fine', 'yes'];
+              for (var i = 0; i < words.length; i++) {
+                if (response.toLowerCase().indexOf(words[i]) > -1) {
+                  this.typingText = '';
+                  this.introMode = false;
+                }
+              }
+
+              this.typing = true;
+
+            }
           }
           break;
       }
