@@ -21,8 +21,6 @@ function InterviewScene() {
 
   this.render = function() {
 
-    this.convergame.draw.blankCanvas('#7ec0ee'); // sky blue
-
     this.background.render();
     this.interviewer.render();
 
