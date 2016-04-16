@@ -38,7 +38,7 @@ function InterviewScene() {
     }
 
     if (this.typing) {
-      if (this.typingPosition < this.typingText.length + 30) {
+      if (this.typingPosition < this.typingText.length + 25) {
         this.typingTimer += time;
         if (this.typingTimer >= this.typingTimerLimit) {
           this.typingPosition++;
@@ -137,11 +137,15 @@ function InterviewScene() {
             words = ['ok', 'fine', 'yes', 'alright', 'do it', 'indeed',
               'certainly', 'sure'];
 
-            this.typingText = "Umm... shall we begin?";
             for (i = 0; i < words.length; i++) {
               if (response.toLowerCase().indexOf(words[i]) > -1) {
                 this.introMode = false;
               }
+            }
+
+            if (this.introMode) {
+              this.typingText = "Umm... shall we begin your shapeshifter interview?";
+              this.typing = true;
             }
 
           }
