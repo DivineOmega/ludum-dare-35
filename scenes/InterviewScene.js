@@ -119,7 +119,7 @@ function InterviewScene() {
 
       case 20:
         if (!this.typing) {
-          this.typingText = "Please take a seat. How are you today?";
+          this.typingText = "Please take a seat... How are you today?";
           this.typing = true;
           this.introStep = 30;
         }
@@ -221,6 +221,7 @@ function InterviewScene() {
 
       index = Math.floor(Math.random() * this.questionBag.length);
       current = this.questionBag[index];
+      this.questionBag.splice(index, 1);
 
       this.typingText = 'Question ' + this.questionNumber + ': ' + current.question;
       this.typing = true;
