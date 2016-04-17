@@ -16,6 +16,7 @@ function InterviewScene() {
   this.typingTimer = 0;
   this.typingTimerLimit = 0.05;
 
+  this.questionBag = [];
   this.questionNumber = 1;
   this.awaitingAnswer = false;
 
@@ -177,6 +178,10 @@ function InterviewScene() {
 
     var i, index;
 
+    if (this.questionBag.length === 0) {
+      this.questionBag = questions;
+    }
+
     if (this.awaitingAnswer) {
       {
         var response = this.input.getInputtedText();
@@ -214,8 +219,8 @@ function InterviewScene() {
       }
     } else if (this.typing === false) {
 
-      index = Math.floor(Math.random() * questions.length);
-      current = questions[index];
+      index = Math.floor(Math.random() * this.questionBag.length);
+      current = this.questionBag[index];
 
       this.typingText = 'Question ' + this.questionNumber + ': ' + current.question;
       this.typing = true;
