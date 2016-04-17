@@ -23,9 +23,18 @@ function Interviewer() {
 
   this.visible = true;
 
+  this.talkingSound = new Audio('sounds/talking.ogg');
+
   this.update = function(time) {
 
+    if (this.talkingSound.paused) {
+      this.talkingSound.play();
+    }
+
     if (this.talking) {
+
+      this.talkingSound.volume = 1;
+
       this.talkTimer += time;
 
       this.mouth.height = 454;
@@ -45,6 +54,9 @@ function Interviewer() {
         this.talkTimer = 0;
       }
     } else {
+
+      this.talkingSound.volume = 0;
+
       this.mouth.height = 250;
       this.mouth.y = this.y + 120;
     }

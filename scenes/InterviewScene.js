@@ -45,6 +45,9 @@ function InterviewScene() {
     }
 
     if (this.typing) {
+      if (this.typingPosition >= this.typingText.length) {
+        this.interviewer.talking = false;
+      }
       if (this.typingPosition < this.typingText.length + 20) {
         this.typingTimer += time;
         if (this.typingTimer >= this.typingTimerLimit) {
