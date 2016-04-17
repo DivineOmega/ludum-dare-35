@@ -31,7 +31,7 @@ function Interviewer() {
       this.talkingSound.play();
     }
 
-    if (this.talking) {
+    if (this.talking && this.visible) {
 
       this.talkingSound.volume = 0.5;
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>The Professional Shapeshifter Interview</title>
+  <title>The Professional Shapeshifter</title>
   <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -10,6 +10,7 @@
 
     <script src="convergame-engine/convergame.min.js"></script>
 
+    <script src="scenes/IntroScene.js"></script>
     <script src="scenes/InterviewScene.js"></script>
 
     <script src="objects/Interviewer.js"></script>
@@ -26,9 +27,10 @@
       convergame.handleKeyboardEvents = false;
       convergame.init();
 
+      var introScene = new IntroScene();
       var interviewScene = new InterviewScene();
 
-      convergame.scene.changeScene(interviewScene);
+      convergame.scene.changeScene(introScene);
 
       convergame.startMainGameLoop();
 

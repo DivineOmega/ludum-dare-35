@@ -29,7 +29,7 @@ function InterviewScene() {
   this.update = function(time) {
 
     if (this.musicSound.paused) {
-      this.musicSound.volume = 1;
+      this.musicSound.volume = 0.8;
       this.musicSound.play();
     }
 
@@ -326,7 +326,7 @@ function InterviewScene() {
               this.introMode = true;
               this.questionNumber = 1;
               this.correctAnswers = 0;
-              this.introStep = 0;
+              this.introStep = 20;
               this.resultsStep = 0;
             } else {
               this.resultsStep = 40;

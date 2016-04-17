@@ -20,7 +20,7 @@ var questions = [
     'answers': ['fly', 'mouse', 'bug', 'insect', 'spider']
   },
   {
-    'question': 'To hide in a large lawn, would could you shapeshift into?',
+    'question': 'To hide in a large lawn, what could you shapeshift into?',
     'answers': ['grass', 'flower', 'plant', 'insect', 'bug', 'spider', 'leaf', 'leaves']
   },
   {
