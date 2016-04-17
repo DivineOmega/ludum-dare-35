@@ -21,6 +21,8 @@ function Interviewer() {
   this.bodyTimer = 0;
   this.bodyTimerLimit = 0.32;
 
+  this.visible = true;
+
   this.update = function(time) {
 
     if (this.talking) {
@@ -67,12 +69,13 @@ function Interviewer() {
 
   this.render = function() {
 
-    this.body.render();
-    this.mouth.render();
-    this.eyes.render();
-    this.pupils.render();
-    this.eyebrows.render();
-
+    if (this.visible) {
+      this.body.render();
+      this.mouth.render();
+      this.eyes.render();
+      this.pupils.render();
+      this.eyebrows.render();
+    }
 
   };
 

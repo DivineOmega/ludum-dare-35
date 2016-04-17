@@ -19,6 +19,10 @@ function InterviewScene() {
   this.questionBag = [];
   this.questionNumber = 1;
   this.awaitingAnswer = false;
+  this.totalQuestions = 10;
+  this.correctAnswers = 0;
+
+  this.resultsStep = 0;
 
   this.update = function(time) {
 
@@ -34,8 +38,10 @@ function InterviewScene() {
 
     if (this.introMode) {
       this.handleIntroSequence();
-    } else {
+    } else if (this.questionNumber <= this.totalQuestions) {
       this.handleQuestioningSequence();
+    } else {
+      this.handleResults();
     }
 
     if (this.typing) {
@@ -101,6 +107,9 @@ function InterviewScene() {
   };
 
   this.handleIntroSequence = function() {
+
+    this.interviewer.visible = true;
+
     switch (this.introStep) {
 
       case 0:
@@ -176,6 +185,8 @@ function InterviewScene() {
 
   this.handleQuestioningSequence = function() {
 
+    this.interviewer.visible = true;
+
     var i, index;
 
     if (this.awaitingAnswer) {
@@ -201,6 +212,7 @@ function InterviewScene() {
 
           if (answeredCorrectly) {
             this.typingText = correctResponse;
+            this.correctAnswers++;
           } else {
             this.typingText = incorrectResponse;
           }
@@ -232,4 +244,92 @@ function InterviewScene() {
     }
 
   };
+
+  this.handleResults = function() {
+    switch (this.resultsStep) {
+
+      case 0:
+        if (!this.typing) {
+          this.typingText = "Okay. That concludes our interview session for today.";
+          this.typing = true;
+          this.resultsStep = 10;
+        }
+        break;
+
+      case 10:
+        if (!this.typing) {
+          var percentage = (this.correctAnswers / this.totalQuestions) * 100;
+
+          if (percentage >= 90) {
+            this.typingText = "I'm happy to say you've got the job! Welcome to the wonderful world of professional shapeshifting.";
+            this.typing = true;
+            this.resultsStep = 30;
+          } else if (percentage >= 60) {
+            this.typingText = "Thanks for coming in. We'll give you a call if we're interested in taking you on.";
+            this.typing = true;
+            this.resultsStep = 20;
+          } else if (percentage >= 30) {
+            this.typingText = "Thanks for coming, but I'm afraid you're not really what we're looking for.";
+            this.typing = true;
+            this.resultsStep = 20;
+          } else {
+            this.typingText = "I'm sorry. I'm afraid you're definitely not what we're looking for.";
+            this.typing = true;
+            this.resultsStep = 20;
+          }
+        }
+        break;
+
+      case 20:
+        if (!this.typing) {
+          this.interviewer.visible = false;
+          this.typingText = "[ They never called back. -_- Try again? [Y/N] ]";
+          this.typing = true;
+          this.resultsStep = 50;
+        }
+        break;
+
+      case 30:
+        if (!this.typing) {
+          this.interviewer.visible = false;
+          this.typingText = "[ Congratulations! You've got the job! ^_^ Go again? [Y/N] ]";
+          this.typing = true;
+          this.resultsStep = 50;
+        }
+        break;
+
+      case 40:
+        if (!this.typing) {
+          this.interviewer.visible = false;
+          this.typingText = "[ The End. Thank you so much for playing! ]";
+          this.typing = true;
+          this.resultsStep = 60;
+        }
+        break;
+
+      case 50:
+        if (!this.typing) {
+          response = this.input.getInputtedText();
+
+          if (response) {
+            if (response.toLowerCase().indexOf('y') > -1) {
+              this.introMode = true;
+              this.questionNumber = 1;
+              this.correctAnswers = 0;
+              this.introStep = 0;
+              this.resultsStep = 0;
+            } else {
+              this.resultsStep = 40;
+            }
+          }
+        }
+        break;
+
+      case 60:
+        this.input.hidden = true;
+        break;
+    }
+
+  };
+
 }
