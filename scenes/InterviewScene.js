@@ -113,7 +113,7 @@ function InterviewScene() {
     switch (this.introStep) {
 
       case 0:
-        this.typingText = "Hello there.";
+        this.typingText = "Hello there. It's very nice to meet you.";
         this.typing = true;
         this.introStep = 10;
         break;
