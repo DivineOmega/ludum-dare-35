@@ -39,7 +39,7 @@ function InterviewScene() {
     }
 
     if (this.typing) {
-      if (this.typingPosition < this.typingText.length + 25) {
+      if (this.typingPosition < this.typingText.length + 20) {
         this.typingTimer += time;
         if (this.typingTimer >= this.typingTimerLimit) {
           this.typingPosition++;
@@ -79,7 +79,7 @@ function InterviewScene() {
     this.questionText.font = 'MinecraftiaRegular';
     this.questionText.fontSize = 40;
     this.questionText.style = '#00CC00';
-    this.questionText.maxWidth = 1090;
+    this.questionText.maxWidth = 1670;
     this.questionText.lineHeight = 55;
 
     this.input = new Input();
@@ -178,10 +178,6 @@ function InterviewScene() {
 
     var i, index;
 
-    if (this.questionBag.length === 0) {
-      this.questionBag = questions;
-    }
-
     if (this.awaitingAnswer) {
       {
         var response = this.input.getInputtedText();
@@ -218,6 +214,12 @@ function InterviewScene() {
         }
       }
     } else if (this.typing === false) {
+
+      if (this.questionBag.length === 0) {
+        for (i = 0; i < questions.length; i++) {
+          this.questionBag.push(questions[i]);
+        }
+      }
 
       index = Math.floor(Math.random() * this.questionBag.length);
       current = this.questionBag[index];

@@ -32,7 +32,7 @@ var questions = [
     'answers': ['chef', 'cook', 'washer', 'waiter', 'waitress']
   },
   {
-    'question': 'Lost in a pitch black cave, you need to be able to see in the dark. What animation transformation would work best?',
+    'question': 'Lost in a pitch black cave, you need to be able to see in the dark. What animal transformation would work best?',
     'answers': ['owl', 'lemur', 'cat', 'kitty', 'feline', 'nocturnal', 'bat', 'dog', 'wolf', 'wolves']
   },
   {
