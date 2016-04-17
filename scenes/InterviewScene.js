@@ -78,6 +78,8 @@ function InterviewScene() {
     this.questionText.font = 'MinecraftiaRegular';
     this.questionText.fontSize = 40;
     this.questionText.style = '#00CC00';
+    this.questionText.maxWidth = 1090;
+    this.questionText.lineHeight = 55;
 
     this.input = new Input();
     this.input.init(this.convergame, 100, 900, 1700, 100, "Type your response...");
