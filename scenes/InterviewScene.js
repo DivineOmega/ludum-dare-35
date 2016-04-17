@@ -24,7 +24,14 @@ function InterviewScene() {
 
   this.resultsStep = 0;
 
+  this.musicSound = new Audio('sounds/music.ogg');
+
   this.update = function(time) {
+
+    if (this.musicSound.paused) {
+      this.musicSound.volume = 1;
+      this.musicSound.play();
+    }
 
     this.interviewer.update(time);
     this.interviewer.talking = this.typing;

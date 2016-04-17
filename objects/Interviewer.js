@@ -33,7 +33,7 @@ function Interviewer() {
 
     if (this.talking) {
 
-      this.talkingSound.volume = 1;
+      this.talkingSound.volume = 0.5;
 
       this.talkTimer += time;
 
