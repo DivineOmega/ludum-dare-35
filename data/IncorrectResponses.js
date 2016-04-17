@@ -8,5 +8,7 @@ var incorrectResponses = [
   'Um...',
   'Well, that\'s one way of looking at it.',
   'Not a great answer I\'m afraid.',
-  'That wasn\'t quite what I was looking for.'
+  'That wasn\'t quite what I was looking for.',
+  'Perhaps I should have re-phrased the question.',
+  'That wasn\'t quite the answer we were looking for I\'m afraid.'
 ];

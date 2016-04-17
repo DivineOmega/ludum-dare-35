@@ -26,5 +26,25 @@ var questions = [
   {
     'question': 'You are stowing away in the boot/trunk of a car. What could you become in order to remain inconspicuous?',
     'answers': ['petrol', 'gas', 'cannister', 'tire', 'wheel', 'sign', 'cone', 'bag', 'case']
+  },
+  {
+    'question': 'You need to hide within a corporate kitchen. What type of person could you shapeshift into to prevent yourself being recognised?',
+    'answers': ['chef', 'washer', 'waiter', 'waitress']
+  },
+  {
+    'question': 'Lost in a pitch black cave, you need to be able to see in the dark. What animation transformation would work best?',
+    'answers': ['owl', 'lemur', 'cat', 'kitty', 'feline', 'nocturnal', 'bat', 'dog', 'wolf', 'wolves']
+  },
+  {
+    'question': 'You need to sneak through a tiny gap in a wall. What should you shapeshift into?',
+    'answer': ['mouse', 'rat', 'bug', 'insect', 'ant', 'spider']
+  },
+  {
+    'question': 'You have become stranded in a large desert and need to conserve water. What should you shapeshift into?',
+    'answer': ['camel']
+  },
+  {
+    'question': 'In a very cold environment, what animal shapeshift would be appropriate?',
+    'answer': ['penguin', 'polar', 'seal']
   }
 ];

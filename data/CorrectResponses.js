@@ -8,5 +8,6 @@ var correctResponses = [
   'That makes sense.',
   'Indeed.',
   'That sounds right.',
-  'Good answer. Next question.'
+  'Good answer. Next question.',
+  'Okay. Well, this is going quite well.'
 ];
